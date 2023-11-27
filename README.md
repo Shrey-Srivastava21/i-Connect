@@ -1,8 +1,14 @@
-# i-Connect
+# 𝒾-𝒞𝑜𝓃𝓃𝑒𝒸𝓉
 
 - A university level Social - Educational web application
 - It allows the students and faculty members to make their public profiles by which they can exchange information, contribute, poll and establish communities within the university
 - Themes - Light and Dark
+
+
+<p align="center">
+  <img src="https://github.com/Shrey-Srivastava21/i-Connect/assets/84815622/2a6ad35a-c10d-4146-b115-18a114338e3f" align="center" width="90%" />
+</p>
+
 
 ## Tech Stack
 
