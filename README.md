@@ -6,9 +6,12 @@
 
 
 <p align="center">
-  <img src="https://github.com/Shrey-Srivastava21/i-Connect/assets/84815622/2a6ad35a-c10d-4146-b115-18a114338e3f" align="center" width="90%" />
+  <img src="https://github.com/Shrey-Srivastava21/i-Connect/assets/84815622/2a6ad35a-c10d-4146-b115-18a114338e3f" align="center" width="70%" height="30%"/>
 </p>
 
+<h3 align="center">
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png">
+</h3>
 
 ## Tech Stack
 
@@ -36,6 +39,10 @@
 ![App Screenshot](https://github.com/pranjalvarshney/my-fellow/blob/main/sample/11.png)
 ![App Screenshot](https://github.com/pranjalvarshney/my-fellow/blob/main/sample/12.png)
 ![App Screenshot](https://github.com/pranjalvarshney/my-fellow/blob/main/sample/13.png)
+
+<h3 align="center">
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png">
+</h3>
 
 ## Backend Flow
 
