@@ -30,7 +30,7 @@ export const AboutUniversity = () => {
                     <CardMedia
                       component="img"
                       style={{ maxWidth: "150px" }}
-                      image="gbu_logo.png"
+                      image="vitb.jpeg"
                       label={"Logo"}
                     />
                   </Grid>
