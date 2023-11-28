@@ -1,20 +1,8 @@
 # 𝒾-𝒞𝑜𝓃𝓃𝑒𝒸𝓉
 
-- A university-level social-educational Web application.
-- It allows the student community to make their public profiles by which they can exchange information, contribute, poll, and establish communities within the university.
-- With more and more colleges and institutions adopting digital means of connecting, students find it difficult to surf across these multiple sources to stay updated.
-- So, we decided to build this one-stop solution. This user-friendly website will facilitate dynamic cross-generational knowledge exchange and aims to unite seniors and juniors and foster mentorship and community interaction within the campus.
-- Our objective is to seamlessly unite and empower students through the power of social media and digital interaction.
-- Our website will be based on Facebook, Instagram, WhatsApp, Google Groups, MS Teams, and much more. We will be referring to these websites for insights and their ideologies.
-- Themes - Light and Dark.
-
-<p align="center">
-  <img src="https://github.com/Shrey-Srivastava21/i-Connect/assets/84815622/2a6ad35a-c10d-4146-b115-18a114338e3f" align="center" width="70%" height="30%"/>
-</p>
-
-<h3 align="center">
-<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png">
-</h3>
+- A university level Social - Educational web application
+- It allows the students and faculty members to make their public profiles by which they can exchange information, contribute, poll and establish communities within the university
+- Themes - Light and Dark
 
 ## Tech Stack
 
