@@ -41,7 +41,7 @@
 
 ## Backend Flow
 
-![App Screenshot](https://github.com/pranjalvarshney/my-fellow/blob/main/sample/Backend%20flow.png)
+![Backend flow](https://github.com/Shrey-Srivastava21/i-Connect/assets/84815622/cadb70f7-354e-4a45-9de0-90592f228d34)
 
 ## Contributing
 
