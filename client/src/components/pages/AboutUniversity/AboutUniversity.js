@@ -43,7 +43,7 @@ export const AboutUniversity = () => {
                       </Typography>
                       <Typography gutterBottom variant="subtitle1">
                         <a
-                          href="http://www.gbu.ac.in/"
+                          href="https://vitbhopal.ac.in/"
                           target="_blank"
                           rel="noreferrer noopener"
                         >
