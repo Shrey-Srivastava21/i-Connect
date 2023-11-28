@@ -1,1 +1,1 @@
-export const API = "http://localhost:4040/api/v1"
+export const API = "https://i-connect-4tn4.onrender.com/api/v1";

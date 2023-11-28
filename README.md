@@ -1,8 +1,20 @@
-# i-Connect
+# 𝒾-𝒞𝑜𝓃𝓃𝑒𝒸𝓉
 
-- A university level Social - Educational web application
-- It allows the students and faculty members to make their public profiles by which they can exchange information, contribute, poll and establish communities within the university
-- Themes - Light and Dark
+- A university-level social-educational Web application.
+- It allows the student community to make their public profiles by which they can exchange information, contribute, poll, and establish communities within the university.
+- With more and more colleges and institutions adopting digital means of connecting, students find it difficult to surf across these multiple sources to stay updated.
+- So, we decided to build this one-stop solution. This user-friendly website will facilitate dynamic cross-generational knowledge exchange and aims to unite seniors and juniors and foster mentorship and community interaction within the campus.
+- Our objective is to seamlessly unite and empower students through the power of social media and digital interaction.
+- Our website will be based on Facebook, Instagram, WhatsApp, Google Groups, MS Teams, and much more. We will be referring to these websites for insights and their ideologies.
+- Themes - Light and Dark.
+
+<p align="center">
+  <img src="https://github.com/Shrey-Srivastava21/i-Connect/assets/84815622/2a6ad35a-c10d-4146-b115-18a114338e3f" align="center" width="70%" height="30%"/>
+</p>
+
+<h3 align="center">
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png">
+</h3>
 
 ## Tech Stack
 
@@ -12,28 +24,24 @@
 - Node js
 - Express js
 - MongoDB
-- Vercel (hosting)
+- Vercel (Hosting Frontend)
+- Onrender (Hosting Backend)
 - Canva
 
 ## Screenshots
 
-![App Screenshot](https://github.com/pranjalvarshney/my-fellow/blob/main/sample/1.png)
-![App Screenshot](https://github.com/pranjalvarshney/my-fellow/blob/main/sample/2.png)
-![App Screenshot](https://github.com/pranjalvarshney/my-fellow/blob/main/sample/3.png)
-![App Screenshot](https://github.com/pranjalvarshney/my-fellow/blob/main/sample/4.png)
-![App Screenshot](https://github.com/pranjalvarshney/my-fellow/blob/main/sample/5.png)
-![App Screenshot](https://github.com/pranjalvarshney/my-fellow/blob/main/sample/6.png)
-![App Screenshot](https://github.com/pranjalvarshney/my-fellow/blob/main/sample/7.png)
-![App Screenshot](https://github.com/pranjalvarshney/my-fellow/blob/main/sample/8.png)
-![App Screenshot](https://github.com/pranjalvarshney/my-fellow/blob/main/sample/9.png)
-![App Screenshot](https://github.com/pranjalvarshney/my-fellow/blob/main/sample/10.png)
-![App Screenshot](https://github.com/pranjalvarshney/my-fellow/blob/main/sample/11.png)
-![App Screenshot](https://github.com/pranjalvarshney/my-fellow/blob/main/sample/12.png)
-![App Screenshot](https://github.com/pranjalvarshney/my-fellow/blob/main/sample/13.png)
+![Screenshot (2354)](https://github.com/Shrey-Srivastava21/i-Connect/assets/84815622/0e636c5d-9b8f-4130-92d3-002d28a18be7)
+![Screenshot (2355)](https://github.com/Shrey-Srivastava21/i-Connect/assets/84815622/b8cd1a48-308d-47cc-a509-a4673707523c)
+![Screenshot (2359)](https://github.com/Shrey-Srivastava21/i-Connect/assets/84815622/5c03002d-c634-4e2f-9efc-3ccd4d28e970)
+![Screenshot (2358)](https://github.com/Shrey-Srivastava21/i-Connect/assets/84815622/be164937-9aa1-4567-b8a1-c47becc037f8)
+
+<h3 align="center">
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png">
+</h3>
 
 ## Backend Flow
 
-![App Screenshot](https://github.com/pranjalvarshney/my-fellow/blob/main/sample/Backend%20flow.png)
+![Backend flow](https://github.com/Shrey-Srivastava21/i-Connect/assets/84815622/cadb70f7-354e-4a45-9de0-90592f228d34)
 
 ## Contributing
 
