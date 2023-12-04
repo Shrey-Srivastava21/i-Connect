@@ -1,7 +1,13 @@
-# 𝒾-𝒞𝑜𝓃𝓃𝑒𝒸𝓉
+# 𝒾-𝒞𝑜𝓃𝓃𝑒𝒸𝓉⛱
 
-- A university level Social - Educational web application
-- It allows the students and faculty members to make their public profiles by which they can exchange information, contribute, poll and establish communities within the university
+- A University-level social-educational web app application🍁.
+- In this changing world of technology, staying updated is very important. So i-Connect is a platform exclusively for college students to connect, explore events, and join groups at their campus🥀. 
+- Imagine a virtual and digital campus where you can engage in interconnected learning📌.
+- With more and more colleges and institutions adopting digital means of connecting, students find it difficult to surf across these multiple sources to stay updated🎧.
+- So, we decided to build this one-stop solution. This user-friendly website will facilitate dynamic cross-generational knowledge exchange and aims to unite seniors and juniors and foster mentorship and community interaction within the campus🎭.
+- Our objective is to seamlessly unite and empower students through the power of social media and digital interaction🌼.
+- Our website will be based on Facebook, Instagram, WhatsApp, Google Groups, MS Teams and much more.  We will be referring to these websites for insights and their ideologies🌷.
+- It allows the student community to make their public profiles by which they can exchange information, contribute, poll, and establish communities within the university🌴.
 - Themes - Light and Dark
 
 ## Tech Stack
