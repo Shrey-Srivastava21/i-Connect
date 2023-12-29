@@ -30,22 +30,8 @@ fs.mkdir("uploads", (err) => {
   })
 })
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "uploads/feedbacks")
-  },
-  filename: (req, file, cb) => {
-    cb(
-      null,
-      "feedback_" +
-        new Date(Date.now())
-          .toLocaleString("en-IN")
-          .replace(/-|:|\/|\.|,|/g, "")
-          .replace(/ /g, "_") +
-        path.extname(file.originalname)
-    )
-  },
-})
+const storage = multer.memoryStorage();
+exports.upload = multer({ storage }).single('picture');
 const fileFilter = (req, file, cb) => {
   if (
     file.mimetype == "image/jpeg" ||
@@ -59,25 +45,37 @@ const fileFilter = (req, file, cb) => {
     cb(null, false)
   }
 }
-exports.upload = multer({ storage: storage, fileFilter: fileFilter })
+//exports.upload = multer({ storage: storage, fileFilter: fileFilter })
 
 // create feedback
-exports.createFeedback = (req, res) => {
+exports.createFeedback = async (req, res) => {
   const user = req.profile
   const { feedback } = req.body
-  var picture
-  if (req.file) {
-    picture = req.file.path
+  const file = req.file;
+  console.log(file);
+  const fileuri = getData(file);
+  //console.log(fileuri);
+  try {
+    const result = await cloudinary.uploader.upload(fileuri.content, {
+      folder: 'blog'
+    });
+    //console.log(result);
+    console.log(result.secure_url);
+    console.log(result.public_id);
+    const newFeedback = Feedback({ user, feedback, picture: result.secure_url })
+    newFeedback.save((err, feedback) => {
+      if (err) {
+        return res.status(400).json({
+          errorMsg: "An error occured",
+        })
+      }
+      res.status(200).json(feedback)
+    })
+  } catch (error) {
+    console.log(error);
   }
-  const newFeedback = Feedback({ user, feedback, picture })
-  newFeedback.save((err, feedback) => {
-    if (err) {
-      return res.status(400).json({
-        errorMsg: "An error occured",
-      })
-    }
-    res.status(200).json(feedback)
-  })
+
+
 }
 
 //get all feedbacks

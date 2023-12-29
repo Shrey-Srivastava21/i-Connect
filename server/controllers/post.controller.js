@@ -2,7 +2,10 @@ const Post = require("../models/Post")
 const multer = require("multer")
 const path = require("path")
 const fs = require("fs")
-const { getUserById } = require("../controllers/user.controller")
+const getData = require('./DataUri');
+const cloudinary = require('../cloudinary');
+const { getUserById } = require("../controllers/user.controller");
+const { post } = require("../routes/auth.route");
 
 exports.getPostById = (req, res, next, Id) => {
   Post.findById(Id)
@@ -35,22 +38,8 @@ fs.mkdir("uploads", (err) => {
   })
 })
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "uploads/posts")
-  },
-  filename: (req, file, cb) => {
-    cb(
-      null,
-      "post_" +
-        new Date(Date.now())
-          .toISOString()
-          .replace(/-|:|Z|\./g, "")
-          .replace(/T/g, "_") +
-        path.extname(file.originalname)
-    )
-  },
-})
+const storage = multer.memoryStorage();
+
 const fileFilter = (req, file, cb) => {
   if (
     file.mimetype == "image/jpeg" ||
@@ -64,24 +53,46 @@ const fileFilter = (req, file, cb) => {
     cb(null, false)
   }
 }
-exports.upload = multer({ storage: storage, fileFilter: fileFilter })
+exports.upload = multer({ storage }).single('picture');
 
-exports.createPost = (req, res) => {
+exports.createPost = async (req, res) => {
   const { user, content } = req.body
-  const files = req.files
-  const picture = []
-  for (let i = 0; i < files.length; i++) {
-    picture[i] = files[i].path
+  const file = req.file;
+  console.log(file);
+  const fileuri = getData(file);
+  //console.log(fileuri);
+  try {
+    const result = await cloudinary.uploader.upload(fileuri.content, {
+      folder: 'posts'
+    });
+    //console.log(result);
+    console.log(result.secure_url);
+    console.log(result.public_id);
+    const newPost = Post({
+      user,
+      content,
+      picture:
+        //result.public_id,
+        result.secure_url
+
+    })
+    console.log(newPost);
+    newPost.save((err, post) => {
+      if (err) {
+        res.status(400).json({
+          errorMsg: "An error occured",
+        })
+      }
+      return res.status(200).json(post)
+    })
+  } catch (error) {
+    console.log(error);
   }
-  const newPost = Post({ user, content, picture })
-  newPost.save((err, post) => {
-    if (err) {
-      res.status(400).json({
-        errorMsg: "An error occured",
-      })
-    }
-    return res.status(200).json(post)
-  })
+
+  //console.log(result);
+
+
+
 }
 
 exports.allposts = (req, res) => {
@@ -114,7 +125,7 @@ exports.getPost = (req, res) => {
 }
 
 // update post
-exports.updatePost = (req, res) => {
+exports.updatePost = async (req, res) => {
   Post.findById({ _id: req.post._id }).exec((err, post) => {
     for (let picture of post.picture) {
       let path = picture
@@ -132,26 +143,39 @@ exports.updatePost = (req, res) => {
     }
   })
   const { user, content } = req.body
-  const files = req.files
-  const picture = []
-  for (let i = 0; i < files.length; i++) {
-    picture[i] = files[i].path
-  }
-  const updateObj = { user, content, picture }
+  const files = req.file;
+  const fileuri = getData(files);
+  //console.log(fileuri);
+  try {
+    const result = await cloudinary.uploader.upload(fileuri.content, {
+      folder: 'posts'
+    });
+    //console.log(result);
+    console.log(result.secure_url);
+    console.log(result.public_id);
+    const updateObj = { user, content, picture: result.secure_url };
 
-  Post.findByIdAndUpdate(
-    { _id: req.post._id },
-    { $set: updateObj },
-    { useFindAndModify: false, new: true },
-    (err, post) => {
-      if (err || !post) {
-        return res.status(400).json({
-          errorMsg: "An error occured,  try again later",
-        })
+    Post.findByIdAndUpdate(
+      { _id: req.post._id },
+      { $set: updateObj },
+      { useFindAndModify: false, new: true },
+      (err, post) => {
+        if (err || !post) {
+          return res.status(400).json({
+            errorMsg: "An error occured,  try again later",
+          })
+        }
       }
-      return res.status(200).json(post)
-    }
-  )
+
+    )
+
+  } catch (error) {
+    console.log(error);
+  }
+
+
+
+
 }
 
 // delete post

@@ -23,7 +23,7 @@ router.post(
   "/create/feedback/:userId",
   isSignedIn,
   isAuthenticated,
-  upload.single("picture"),
+  upload,
   createFeedback
 );
 // get all feedbacks

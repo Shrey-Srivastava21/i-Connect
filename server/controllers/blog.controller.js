@@ -1,9 +1,10 @@
 const Blog = require("../models/Blogs");
 const multer = require("multer");
 const path = require("path");
+const getData = require('./DataUri');
 const fs = require("fs");
 const { getUserById } = require("../controllers/user.controller");
-
+const cloudinary = require('../cloudinary');
 exports.getBlogById = (req, res, next, Id) => {
   Blog.findById(Id)
     .populate("user upvotes.user comments.user")
@@ -34,47 +35,36 @@ fs.mkdir("uploads", (err) => {
   });
 });
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "uploads/blogs");
-  },
-  filename: (req, file, cb) => {
-    cb(
-      null,
-      "blog_" +
-        new Date(Date.now())
-          .toISOString()
-          .replace(/-|:|Z|\./g, "")
-          .replace(/T/g, "_") +
-        path.extname(file.originalname)
-    );
-  },
-});
-const fileFilter = (req, file, cb) => {
-  if (file.mimetype == "image/jpeg" || file.mimetype == "image/png") {
-    cb(null, true);
-  } else {
-    cb(null, false);
-  }
-};
-exports.upload = multer({ storage: storage, fileFilter: fileFilter });
+const storage = multer.memoryStorage();
+exports.upload = multer({ storage }).single('picture');
 
 //create blog
-exports.createBlog = (req, res) => {
+exports.createBlog = async (req, res) => {
   const { user, title, content } = req.body;
-  var picture;
-  if (req.file) {
-    picture = req.file.path;
+  const file = req.file;
+  console.log(file);
+  const fileuri = getData(file);
+  //console.log(fileuri);
+  try {
+    const result = await cloudinary.uploader.upload(fileuri.content, {
+      folder: 'blog'
+    });
+    //console.log(result);
+    console.log(result.secure_url);
+    console.log(result.public_id);
+    const newBlog = Blog({ user, title, content, picture: result.secure_url });
+    newBlog.save((err, blog) => {
+      if (err) {
+        res.status(400).json({
+          errorMsg: "An error occured",
+        });
+      }
+      return res.status(200).json(blog);
+    });
+  } catch (error) {
+    console.log(error);
   }
-  const newBlog = Blog({ user, title, content, picture });
-  newBlog.save((err, blog) => {
-    if (err) {
-      res.status(400).json({
-        errorMsg: "An error occured",
-      });
-    }
-    return res.status(200).json(blog);
-  });
+
 };
 
 // read all blogs
@@ -110,7 +100,7 @@ exports.getBlog = (req, res) => {
 };
 
 // update blog
-exports.updateBlog = (req, res) => {
+exports.updateBlog = async (req, res) => {
   Blog.findById({ _id: req.blogs._id }).exec((err, blog) => {
     if (blog.picture) {
       let path = blog.picture;
@@ -127,25 +117,36 @@ exports.updateBlog = (req, res) => {
     }
   });
   const { user, title, content } = req.body;
-  var picture;
-  if (req.file) {
-    picture = req.file.path;
-  }
-  const updateObj = { user, title, content, picture };
+  //const { user, content } = req.body
+  const files = req.file;
+  const fileuri = getData(files);
 
-  Blog.findByIdAndUpdate(
-    { _id: req.blogs._id },
-    { $set: updateObj },
-    { useFindAndModify: false, new: true },
-    (err, blog) => {
-      if (err || !blog) {
-        return res.status(400).json({
-          error: "An error occured,  try again later",
-        });
+  try {
+    const result = await cloudinary.uploader.upload(fileuri.content, {
+      folder: 'blog'
+    });
+    const updateObj = { user, title, content, picture: result.secure_url };
+
+    Blog.findByIdAndUpdate(
+      { _id: req.blogs._id },
+      { $set: updateObj },
+      { useFindAndModify: false, new: true },
+      (err, blog) => {
+        if (err || !blog) {
+          return res.status(400).json({
+            error: "An error occured,  try again later",
+          });
+        }
+        return res.status(200).json(blog);
       }
-      return res.status(200).json(blog);
-    }
-  );
+    );
+
+  } catch (error) {
+    console.log(error);
+  }
+  //const updateObj = { user, title, content, picture };
+
+
 };
 
 // delete blog

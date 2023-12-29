@@ -27,7 +27,7 @@ router.post(
 	"/create/ad/:userId",
 	isSignedIn,
 	isAuthenticated,
-	upload.array("picture", 5),
+	upload,
 	createAd
 );
 
@@ -42,7 +42,7 @@ router.put(
 	"/update/ad/:userId/:adId",
 	isSignedIn,
 	isAuthenticated,
-	upload.array("picture", 5),
+	upload,
 	updateAd
 );
 

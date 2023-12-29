@@ -28,7 +28,7 @@ router.post(
   "/create/post/:userId",
   isSignedIn,
   isAuthenticated,
-  upload.array("picture", 10),
+  upload,
   createPost
 )
 
@@ -43,7 +43,7 @@ router.put(
   "/update/post/:userId/:postId",
   isSignedIn,
   isAuthenticated,
-  upload.array("picture", 10),
+  upload,
   updatePost
 )
 

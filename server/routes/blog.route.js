@@ -29,7 +29,7 @@ router.post(
   "/create/blog/:userId",
   isSignedIn,
   isAuthenticated,
-  upload.single("picture"),
+  upload,
   createBlog
 )
 
@@ -44,7 +44,7 @@ router.put(
   "/update/blog/:userId/:blogId",
   isSignedIn,
   isAuthenticated,
-  upload.single("picture"),
+  upload,
   updateBlog
 )
 
