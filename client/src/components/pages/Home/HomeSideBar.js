@@ -67,9 +67,9 @@ export const HomeSideBar = () => {
             <ListItemIcon>
               <SupervisedUserCircleRoundedIcon />
             </ListItemIcon>
-            <ListItemText
-              primary={<Typography variant="button">Groups</Typography>}
-            />
+            // <ListItemText
+            //   primary={<Typography variant="button">Groups</Typography>}
+            // />
           </ListItem>
           <ListItem button>
             <ListItemIcon>
