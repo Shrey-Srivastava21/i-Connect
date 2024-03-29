@@ -91,7 +91,7 @@ export const HomeSideBar = () => {
           //   <ListItemText
           //     primary={<Typography variant="button">Notices</Typography>}
           //   />
-          // </ListItem>
+          </ListItem>
           <ListItem
             button
             onClick={() => {
