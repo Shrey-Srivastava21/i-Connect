@@ -15,7 +15,7 @@ import SupervisedUserCircleRoundedIcon from "@material-ui/icons/SupervisedUserCi
 import BookmarksRoundedIcon from "@material-ui/icons/BookmarksRounded"
 import EventNoteRoundedIcon from "@material-ui/icons/EventNoteRounded"
 import { useHistory } from "react-router-dom"
-import { NoticeCard } from "./Notice/NoticeCard"
+// import { NoticeCard } from "./Notice/NoticeCard"
 import { API } from "../../../utils/proxy"
 
 export const HomeSideBar = () => {
@@ -63,33 +63,20 @@ export const HomeSideBar = () => {
               primary={<Typography variant="button">Fellows</Typography>}
             />
           </ListItem>
-          // <ListItem button>
-          //   <ListItemIcon>
-          //     <SupervisedUserCircleRoundedIcon />
-          //   </ListItemIcon>
-          //   <ListItemText
-          //     primary={<Typography variant="button">Groups</Typography>}
-          //   />
-          // </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <SupervisedUserCircleRoundedIcon />
+            </ListItemIcon>
+            <ListItemText
+              primary={<Typography variant="button">Groups</Typography>}
+            />
+          </ListItem>
           <ListItem button>
             <ListItemIcon>
               <EventNoteRoundedIcon />
             </ListItemIcon>
             <ListItemText
               primary={<Typography variant="button">Events</Typography>}
-            />
-          </ListItem>
-          <ListItem
-            button
-            onClick={() => {
-              history.push("/notices")
-            }}
-          >
-            <ListItemIcon>
-              <BookmarksRoundedIcon />
-            </ListItemIcon>
-            <ListItemText
-              primary={<Typography variant="button">Notices</Typography>}
             />
           </ListItem>
           <ListItem
@@ -107,7 +94,7 @@ export const HomeSideBar = () => {
           </ListItem>
         </List>
       </Paper>
-      <NoticeCard />
+      {/* <NoticeCard /> */}
     </div>
   )
 }
