@@ -129,7 +129,7 @@ export const InputBox = () => {
           </Grid>
           <Grid item>
             <Button onClick={handleModalAds} startIcon={<BrokenImageIcon />}>
-              Post Ad
+              Post Event
             </Button>
           </Grid>
           <Grid item>
