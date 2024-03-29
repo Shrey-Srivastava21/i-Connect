@@ -100,7 +100,7 @@ const Header = ({ history }) => {
                   <IconButton>
                     <FontAwesomeIcon
                       icon={faHandsHelping}
-                      style={currentTab(history, "/ads")}
+                      style={currentTab(history, "/events")}
                     />
                   </IconButton>
                 </Link>
@@ -110,7 +110,7 @@ const Header = ({ history }) => {
                   <IconButton>
                     <FontAwesomeIcon
                       icon={faUserGraduate}
-                      style={currentTab(history, "/jobs-and-placements")}
+                      style={currentTab(history, "/profile")}
                     />
                   </IconButton>
                 </Link>
