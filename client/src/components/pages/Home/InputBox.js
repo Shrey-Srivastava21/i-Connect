@@ -63,7 +63,7 @@ export const InputBox = () => {
       )}
       {showAds && (
         <AdsModal
-          modalTitle="Create ads"
+          modalTitle="Create Events"
           show={showAds}
           adsFunction={adsContext.createAds}
           ads={undefined}
