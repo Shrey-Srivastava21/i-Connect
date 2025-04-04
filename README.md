@@ -1,6 +1,6 @@
 # 𝒾-𝒞𝑜𝓃𝓃𝑒𝒸𝓉⛱
 
-- A University-level social-educational web app application🍁.
+- A College-level social-educational web app application🍁.
 - In this changing world of technology, staying updated is very important. So i-Connect is a platform exclusively for college students to connect, explore events, and join groups at their campus🥀. 
 - Imagine a virtual and digital campus where you can engage in interconnected learning📌.
 - With more and more colleges and institutions adopting digital means of connecting, students find it difficult to surf across these multiple sources to stay updated🎧.
